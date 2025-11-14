@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Olhuz.Views.HomePage"
+             Title="Menu Principal"
+             BackgroundColor="#E5F3FF"
+             Shell.FlyoutBehavior="Disabled">
+
+    <Grid
+        RowDefinitions="2*,8*"
+        Padding="80,40">
+        <Grid
+            Grid.Row="0"
+            RowDefinitions="*,*"
+            RowSpacing="8"
+            VerticalOptions="Start"
+            HorizontalOptions="Start"
+            MaximumWidthRequest="400">
+            <HorizontalStackLayout
+                Grid.Row="0"
+                VerticalOptions="Center"
+                Spacing="30">
+                <Image
+                    Source="logo.png"
+                    Aspect="AspectFill"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    HeightRequest="70" />
+                <Label
+                    Text="Olhuz"
+                    FontSize="60"
+                    VerticalOptions="Center"
+                    HorizontalOptions="End"
+                    TextColor="Black" />
+            </HorizontalStackLayout>
+            <Label
+                Grid.Row="1"
+                Text="A técnologia que ilumina o invisível"
+                FontSize="18"
+                TextColor="Black"/>
+        </Grid>
+
+        <Grid
+            Grid.Row="1"
+            VerticalOptions="Center"
+            HorizontalOptions="Fill"
+            ColumnDefinitions="*, *, *, *"
+            MaximumWidthRequest="2000"
+            ColumnSpacing="40">
+
+            <Border
+                Grid.Column="0"
+                x:Name="ReadImageCard"
+                Style="{StaticResource CardButtonHome}">
+
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnReadImageTapped" />
+                </Border.GestureRecognizers>
+
+                <VerticalStackLayout
+                    Style="{StaticResource CardStackLayoutHome}">
+
+                    <Image
+                        Source="read_image.png"
+                        Style="{StaticResource CardImageHome}"/>
+
+                    <Label
+                        Text="Ler Imagens"
+                        Style="{StaticResource CardTitleLabelHome}" />
+
+                    <Label
+                        Text="Descrição visual"
+                        Style="{StaticResource CardSubtitleLabelHome}" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <Border
+                Grid.Column="1"
+                x:Name="ReadingHistoryCard"
+                Style="{StaticResource CardButtonHome}">
+
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnReadingHistoryTapped" />
+                </Border.GestureRecognizers>
+
+                <VerticalStackLayout
+                    Style="{StaticResource CardStackLayoutHome}">
+
+                    <Image
+                        Source="reading_history.png"
+                        Style="{StaticResource CardImageHome}"/>
+
+                    <Label
+                        Text="Leituras Recentes"
+                        Style="{StaticResource CardTitleLabelHome}"/>
+
+                    <Label
+                        Text="Histórico de atividades"
+                        Style="{StaticResource CardSubtitleLabelHome}"/>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <Border
+                Grid.Column="2"
+                x:Name="SettingsCard"
+                Style="{StaticResource CardButtonHome}">
+
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSettingsTapped" />
+                </Border.GestureRecognizers>
+
+                <VerticalStackLayout
+                    Style="{StaticResource CardStackLayoutHome}">
+
+                    <Image
+                        Source="settings.png"
+                        Style="{StaticResource CardImageHome}"/>
+
+                    <Label
+                        Text="Configurações"
+                        Style="{StaticResource CardTitleLabelHome}" />
+
+                    <Label
+                        Text="Personalize suas preferências"
+                        Style="{StaticResource CardSubtitleLabelHome}" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <Border
+                Grid.Column="3"
+                x:Name="MyAccountCard"
+                Style="{StaticResource CardButtonHome}">
+
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnMyAccountTapped" />
+                </Border.GestureRecognizers>
+
+                <VerticalStackLayout
+                    Style="{StaticResource CardStackLayoutHome}">
+
+                    <Image
+                        Source="account.png"
+                        Style="{StaticResource CardImageHome}"/>
+
+                    <Label
+                        Text="Minha conta"
+                        Style="{StaticResource CardTitleLabelHome}" />
+
+                    <Label
+                        Text="Gerencie seus dados"
+                        Style="{StaticResource CardSubtitleLabelHome}" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

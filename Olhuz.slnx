@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Olhuz.Api/Olhuz.Api.csproj" Id="8a994a0b-39ba-4633-9f05-43a8be52786b" />
+  <Project Path="Olhuz/Olhuz.csproj" />
+</Solution>

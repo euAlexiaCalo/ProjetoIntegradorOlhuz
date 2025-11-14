@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Olhuz.Views.MainPage"
+             Shell.FlyoutBehavior="Disabled">
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#000050" Offset="0.0" />
+            <GradientStop Color="#2462FF" Offset="0.6" />
+            <GradientStop Color="#BDE1FF" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="0.5*" />
+        </Grid.RowDefinitions>
+
+
+        <Border
+            Grid.Row="1"
+            BackgroundColor="White"
+            StrokeShape="RoundRectangle 50 50 0 0"
+            StrokeThickness="0"
+            Shadow="0 0 16 Black 0.6"
+            HorizontalOptions="Fill"
+            VerticalOptions="Fill">
+            <Grid
+                Padding="20"
+                RowDefinitions="*,*,Auto"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Margin="0,20,0,0"
+                RowSpacing="10">
+
+                <Label
+                    Text="Bem-Vindo ao Olhuz!"
+                    Grid.Row="0"
+                    FontSize="40"
+                    TextColor="Black"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"/>
+
+                <Label
+                    Text="Sua jornada começa aqui."
+                    Grid.Row="1"
+                    FontSize="28"
+                    TextColor="Black"
+                    HorizontalOptions="Center"/>
+
+                <Grid
+                    Grid.Row="2"
+                    ColumnDefinitions="Auto,Auto"
+                    ColumnSpacing="60"
+                    HorizontalOptions="Center"
+                    Margin="60">
+
+                    <Button 
+                        Text="Acessar" 
+                        Grid.Column="0" 
+                        Clicked="OnLoginClicked" 
+                        Style="{StaticResource InitialButton1}"/>
+
+                    <Button 
+                        Text="Cadastrar" 
+                        Grid.Column="1" 
+                        Clicked="OnRegisterClicked" 
+                        Style="{StaticResource InitialButton2}"/>
+                </Grid>
+            </Grid>
+        </Border>
+
+        <Image
+            Source="logo.png"
+            Grid.Row="0"
+            Aspect="AspectFit"
+            HorizontalOptions="Center"
+            VerticalOptions="End"
+            MaximumHeightRequest="180"
+            Margin="100, 0, 100, -60"/>
+
+    </Grid>
+</ContentPage>

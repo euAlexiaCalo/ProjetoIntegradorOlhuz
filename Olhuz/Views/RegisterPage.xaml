@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Olhuz.Views.RegisterPage"
+             Shell.FlyoutBehavior="Disabled">
+
+    <Grid ColumnDefinitions="*,*">
+
+        <!-- ====================== COLUNA ESQUERDA ====================== -->
+        <Grid Grid.Column="0" BackgroundColor="White">
+
+            <Image Source="seta.png" Style="{StaticResource BackImageButton}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnGoBackTapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <VerticalStackLayout Style="{StaticResource WelcomePanelStyle}">
+
+                <Image Style="{StaticResource AuthScreenLogoStyle}"/>
+
+                <Label
+                    Text="Bem-Vindo&#x0a;ao Olhuz" Style="{StaticResource HeaderLabelStyle}"/>
+
+            </VerticalStackLayout>
+        </Grid>
+
+        <!-- ====================== COLUNA DIREITA (FORMULÁRIO) ====================== -->
+        <Grid Grid.Column="1">
+            <ScrollView>
+                <Border Style="{StaticResource AuthFormContainerBorderStyle}">
+
+                    <VerticalStackLayout Spacing="16">
+
+                        <Label Text="Cadastre-se" Style="{StaticResource FormLabelStyle}"/>
+
+                        <!-- Nome completo -->
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="Nome completo" Style="{StaticResource FieldLabelStyle}" />
+                            <Border Style="{StaticResource FormEntryBorderStyle}">
+                                <Entry 
+                                    x:Name="FullNameEntry"
+                                    Placeholder="Digite seu nome" 
+                                    Style="{StaticResource FormEntryStyle}" />
+                            </Border>
+                        </VerticalStackLayout>
+
+                        <!-- Data de nascimento -->
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="Data de nascimento" Style="{StaticResource FieldLabelStyle}"/>
+                            <Border Style="{StaticResource FormDatePickerBorderStyle}">
+                                <DatePicker 
+                                    x:Name="BirthDateDatePicker"
+                                    Format="dd/MM/yyyy" 
+                                    Style="{StaticResource FormDatePickerStyle}"/>
+                            </Border>
+                        </VerticalStackLayout>
+
+
+                        <!-- E-mail -->
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="E-mail" Style="{StaticResource FieldLabelStyle}" />
+                            <Border Style="{StaticResource FormEntryBorderStyle}">
+                                <Entry 
+                                    x:Name="EmailEntry"
+                                    Placeholder="Digite seu email" 
+                                    Keyboard="Email" 
+                                    Style="{StaticResource FormEntryStyle}"/>
+                            </Border>
+                        </VerticalStackLayout>
+
+                        <!-- Senha -->
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="Senha" Style="{StaticResource FieldLabelStyle}" />
+
+                            <Border Style="{StaticResource FormEntryBorderStyle}">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <!-- Adicionado x:Name e evento TextChanged -->
+                                    <Entry 
+                                        x:Name="PasswordEntry"
+                                        Grid.Column="0" 
+                                        Placeholder="Digite sua senha" 
+                                        Keyboard="Password" 
+                                        IsPassword="True"
+                                        TextChanged="OnPasswordTextChanged" 
+                                        Style="{StaticResource FormEntryStyle}"/>
+
+                                    <!-- Adicionado x:Name e evento Tapped -->
+                                    <Image x:Name="PasswordIcon" Grid.Column="1" Source="eye_closed.png" HeightRequest="10" Margin="16,0,16,0">
+                                        <Image.GestureRecognizers>
+                                            <!-- TapGestureRecognizer com evento C# para visibilidade unificada -->
+                                            <TapGestureRecognizer Tapped="OnPasswordToggleTapped" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </Grid>
+                            </Border>
+
+                            <!-- Barras de Força da Senha com x:Name e cores estáticas -->
+                            <HorizontalStackLayout Spacing="8" Margin="16,8,0,0">
+                                <BoxView x:Name="StrengthBar1" Color="LightGray" WidthRequest="60" HeightRequest="5" CornerRadius="2"/>
+                                <BoxView x:Name="StrengthBar2" Color="LightGray" WidthRequest="60" HeightRequest="5" CornerRadius="2"/>
+                                <BoxView x:Name="StrengthBar3" Color="LightGray" WidthRequest="60" HeightRequest="5" CornerRadius="2"/>
+                                <BoxView x:Name="StrengthBar4" Color="LightGray" WidthRequest="60" HeightRequest="5" CornerRadius="2"/>
+                            </HorizontalStackLayout>
+
+                            <!-- Label de Força da Senha com x:Name -->
+                            <Label x:Name="PasswordStrengthLabel" Text="Senha muito fraca" FontSize="12" TextColor="Gray" Margin="24,0,0,0" />
+
+                        </VerticalStackLayout>
+
+                        <!-- Confirmar senha -->
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="Confirmar senha" Style="{StaticResource FieldLabelStyle}"/>
+                            <Border Style="{StaticResource FormEntryBorderStyle}">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <!-- Adicionado x:Name -->
+                                    <Entry
+                                        x:Name="ConfirmPasswordEntry"
+                                        Grid.Column="0"
+                                        Placeholder="Confirme sua senha"
+                                        Keyboard="Password"
+                                        IsPassword="True" 
+                                        Style="{StaticResource FormEntryStyle}"/>
+
+                                    <!-- O evento Tapped está apenas no campo acima, mas este ícone deve ser nomeado (x:Name) para ser atualizado via C# -->
+                                    <Image x:Name="ConfirmPasswordIcon" Grid.Column="1" Source="eye_closed.png" HeightRequest="10" Margin="16,0,16,0">
+                                        <Image.GestureRecognizers>
+                                            <!-- Ícone será atualizado pelo OnPasswordToggleTapped do primeiro campo. -->
+                                            <TapGestureRecognizer Tapped="OnPasswordToggleTapped" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </Grid>
+                            </Border>
+                        </VerticalStackLayout>
+
+                        <!-- Seleção dos termos de uso -->
+                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="0" HorizontalOptions="Center" VerticalOptions="Center" MaximumWidthRequest="400">
+
+                            <!-- CheckBox com x:Name e evento de mudança de estado -->
+                            <CheckBox x:Name="TermsCheckBox" Grid.Column="0" CheckedChanged="OnTermsCheckBoxCheckedChanged"/>
+
+                            <Label Grid.Column="1" LineBreakMode="WordWrap" VerticalTextAlignment="Center" HorizontalTextAlignment="Start">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span FontSize="16" Text="Ao continuar, você concorda com os " TextColor="Black"/>
+
+                                        <!-- Termos de Uso (Evento Tapped) -->
+                                        <Span FontSize="16" Text="Termos de Uso" TextDecorations="Underline" TextColor="Blue">
+                                            <Span.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="TermosDeUsoTapped" />
+                                            </Span.GestureRecognizers>
+                                        </Span>
+
+                                        <Span FontSize="16" Text=" e a "  TextColor="Black" />
+
+                                        <!-- Política de Privacidade (Evento Tapped) -->
+                                        <Span FontSize="16" Text="Política de Privacidade" TextDecorations="Underline" TextColor="Blue">
+                                            <Span.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="PoliticaDePrivacidadeTapped"/>
+                                            </Span.GestureRecognizers>
+                                        </Span>
+
+                                        <Span FontSize="16" Text=", conforme a Lei Geral de Proteção de Dados (LGPD)."  TextColor="Black"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </Grid>
+                        <!-- Botão de Cadastro (com x:Name e evento Clicked) -->
+                        <Button
+                            x:Name="BtnCadastrar"
+                            Text="Cadastrar" IsVisible="True"
+                            Clicked="OnRegisterClicked"
+                            Style="{StaticResource PrimaryButtonStyle}" />
+                        <ActivityIndicator x:Name="Loading" IsVisible="False" Color="Blue" IsRunning="True" WidthRequest="25" HeightRequest="25" />
+                    </VerticalStackLayout>
+
+                </Border>
+            </ScrollView>
+        </Grid>
+    </Grid>
+</ContentPage>

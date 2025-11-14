@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:Olhuz.Components"
+             x:Class="Olhuz.Views.ReadingHistoryPage"
+             Title="Leituras Recentes">
+
+    <Grid
+		RowDefinitions="2*,8*">
+
+        <components:HeaderView Grid.Row="0" />
+
+        <ScrollView
+			Grid.Row="1">
+
+            <FlexLayout
+                    Direction="Row" Wrap="Wrap" JustifyContent="Start" Padding="0" Margin="80,52">
+                <Border Style="{StaticResource CardReadingHistory}">
+                    <Grid Style="{StaticResource GridRowCardReadingHistory1}">
+
+                        <Label Grid.Row="0" Text="Data: 11/11/2025" Style="{StaticResource DateLabelReadingHistory}"/>
+                        <Label Grid.Row="1" Text="Email" Style="{StaticResource TypeLabelReadingHistory}"/>
+
+                        <Label Grid.Row="2" Text="Descrição: resumo do assunto do email descrito aqui" Style="{StaticResource DescriptionLabelReadingHistory}"/>
+
+                        <Button Grid.Row="3" Text="Acessar" Style="{StaticResource AccessButtonReadingHistory}" />
+
+                    </Grid>
+                </Border>
+                <Border Style="{StaticResource CardReadingHistory}">
+                    <Grid Style="{StaticResource GridRowCardReadingHistory1}">
+
+                        <Label Grid.Row="0" Text="Data: 11/11/2025" Style="{StaticResource DateLabelReadingHistory}"/>
+                        <Label Grid.Row="1" Text="Email" Style="{StaticResource TypeLabelReadingHistory}"/>
+
+                        <Label Grid.Row="2" Text="Descrição: resumo do assunto do email descrito aqui" Style="{StaticResource DescriptionLabelReadingHistory}"/>
+
+                        <Button Grid.Row="3" Text="Acessar" Style="{StaticResource AccessButtonReadingHistory}" />
+
+                    </Grid>
+                </Border>
+                <Border Style="{StaticResource CardReadingHistory}">
+                    <Grid Style="{StaticResource GridRowCardReadingHistory1}">
+
+                        <Label Grid.Row="0" Text="Data: 11/11/2025" Style="{StaticResource DateLabelReadingHistory}"/>
+                        <Label Grid.Row="1" Text="Email" Style="{StaticResource TypeLabelReadingHistory}"/>
+
+                        <Label Grid.Row="2" Text="Descrição: resumo do assunto do email descrito aqui" Style="{StaticResource DescriptionLabelReadingHistory}"/>
+
+                        <Button Grid.Row="3" Text="Acessar" Style="{StaticResource AccessButtonReadingHistory}" />
+
+                    </Grid>
+                </Border>
+                <Border Style="{StaticResource CardReadingHistory}">
+                    <Grid Style="{StaticResource GridRowCardReadingHistory1}">
+
+                        <Label Grid.Row="0" Text="Data: 11/11/2025" Style="{StaticResource DateLabelReadingHistory}"/>
+                        <Label Grid.Row="1" Text="Email" Style="{StaticResource TypeLabelReadingHistory}"/>
+
+                        <Label Grid.Row="2" Text="Descrição: resumo do assunto do email descrito aqui" Style="{StaticResource DescriptionLabelReadingHistory}"/>
+
+                        <Button Grid.Row="3" Text="Acessar" Style="{StaticResource AccessButtonReadingHistory}" />
+
+                    </Grid>
+                </Border>
+                <Border Style="{StaticResource CardReadingHistory}">
+                    <Grid Style="{StaticResource GridRowCardReadingHistory1}">
+
+                        <Label Grid.Row="0" Text="Data: 11/11/2025" Style="{StaticResource DateLabelReadingHistory}"/>
+                        <Label Grid.Row="1" Text="Email" Style="{StaticResource TypeLabelReadingHistory}"/>
+
+                        <Label Grid.Row="2" Text="Descrição: resumo do assunto do email descrito aqui" Style="{StaticResource DescriptionLabelReadingHistory}"/>
+
+                        <Button Grid.Row="3" Text="Acessar" Style="{StaticResource AccessButtonReadingHistory}" />
+
+                    </Grid>
+                </Border>
+                <Border Style="{StaticResource CardReadingHistory}">
+                    <Grid Style="{StaticResource GridRowCardReadingHistory1}">
+
+                        <Label Grid.Row="0" Text="Data: 11/11/2025" Style="{StaticResource DateLabelReadingHistory}"/>
+                        <Label Grid.Row="1" Text="Email" Style="{StaticResource TypeLabelReadingHistory}"/>
+
+                        <Label Grid.Row="2" Text="Descrição: resumo do assunto do email descrito aqui" Style="{StaticResource DescriptionLabelReadingHistory}"/>
+
+                        <Button Grid.Row="3" Text="Acessar" Style="{StaticResource AccessButtonReadingHistory}" />
+
+                    </Grid>
+                </Border>
+                <Border Style="{StaticResource CardReadingHistory}">
+                    <Grid Style="{StaticResource GridRowCardReadingHistory1}">
+
+                        <Label Grid.Row="0" Text="Data: 11/11/2025" Style="{StaticResource DateLabelReadingHistory}"/>
+                        <Label Grid.Row="1" Text="Email" Style="{StaticResource TypeLabelReadingHistory}"/>
+
+                        <Label Grid.Row="2" Text="Descrição: resumo do assunto do email descrito aqui" Style="{StaticResource DescriptionLabelReadingHistory}"/>
+
+                        <Button Grid.Row="3" Text="Acessar" Style="{StaticResource AccessButtonReadingHistory}" />
+
+                    </Grid>
+                </Border>
+                <Border Style="{StaticResource CardReadingHistory}">
+                    <Grid Style="{StaticResource GridRowCardReadingHistory1}">
+
+                        <Label Grid.Row="0" Text="Data: 11/11/2025" Style="{StaticResource DateLabelReadingHistory}"/>
+                        <Label Grid.Row="1" Text="Email" Style="{StaticResource TypeLabelReadingHistory}"/>
+
+                        <Label Grid.Row="2" Text="Descrição: resumo do assunto do email descrito aqui" Style="{StaticResource DescriptionLabelReadingHistory}"/>
+
+                        <Button Grid.Row="3" Text="Acessar" Style="{StaticResource AccessButtonReadingHistory}" />
+
+                    </Grid>
+                </Border>
+
+            </FlexLayout>
+
+        </ScrollView>
+
+    </Grid>
+</ContentPage>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:Olhuz.Components"
+             x:Class="Olhuz.Views.SettingsPage"
+             Title="Configurações">
+
+    <Grid RowDefinitions="2*, 8*">
+
+        <components:HeaderView Grid.Row="0" />
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Margin="100,30" Spacing="20">
+
+                <!-- SEÇÃO 1 - LEITURA E TELA -->
+                <Label Text="Leitura de Tela" Style="{StaticResource SettingsSectionLabel}" />
+
+                <Border Style="{StaticResource CardBorderStyle}" >
+                    <VerticalStackLayout Spacing="20">
+
+                        <!-- Desativar Leitura de Tela (SWITCH) -->
+                        <Grid ColumnDefinitions="*,*" VerticalOptions="Center" Padding="60,0,60,0">
+                            <Label Grid.Column="0" Text="Desativar Leitura de Tela" Style="{StaticResource ConfigurationLabel}"/>
+                            <!-- Adicionado x:Name e evento Toggled -->
+                            <Switch x:Name="ScreenReaderSwitch" 
+                                    Grid.Column="1" 
+                                    Toggled="OnScreenReaderToggled" 
+                                    HorizontalOptions="End"
+                                    Style="{StaticResource SettingSwitch}"/>
+                        </Grid>
+
+                        <BoxView HeightRequest="1" Color="LightGray" Margin="0" />
+
+                        <!-- Velocidade da Fala (BOTÕES) -->
+                        <Grid ColumnDefinitions="*,*" VerticalOptions="Center" Padding="60,0,60,0">
+                            <Label Grid.Column="0" Text="Velocidade da Fala" Style="{StaticResource ConfigurationLabel}" />
+
+                            <!-- Adicionado x:Name para referenciar no C# -->
+                            <HorizontalStackLayout x:Name="SpeedButtonsLayout" Grid.Column="1" Style="{StaticResource LayoutSettingsEnd}">
+                                <!-- Botões com evento Clicked e um CommandParameter para identificar a velocidade -->
+                                <Button Text="0.5x" Clicked="OnSpeechSpeedClicked" CommandParameter="0.5" Style="{StaticResource SettingButtonStyle}"/>
+                                <Button Text="1.0x" Clicked="OnSpeechSpeedClicked" CommandParameter="1.0" Style="{StaticResource SettingButtonStyle}"/>
+                                <Button Text="1.5x" Clicked="OnSpeechSpeedClicked" CommandParameter="1.5" Style="{StaticResource SettingButtonStyle}"/>
+                                <Button Text="2.0x" Clicked="OnSpeechSpeedClicked" CommandParameter="2.0" Style="{StaticResource SettingButtonStyle}"/>
+                            </HorizontalStackLayout>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- SEÇÃO 2 - VOZ E FALA -->
+
+                <Label Text="Voz e Fala" Style="{StaticResource SettingsSectionLabel}" />
+
+                <Border Style="{StaticResource CardBorderStyle}">
+                    <VerticalStackLayout Spacing="20">
+
+                        <!-- Tipo de Voz (BOTÕES) -->
+                        <Grid ColumnDefinitions="*,*" VerticalOptions="Center" Padding="60,0,60,0">
+                            <Label Text="Tipo de Voz" Style="{StaticResource ConfigurationLabel}" />
+
+                            <!-- Adicionado x:Name para referenciar no C# -->
+                            <HorizontalStackLayout x:Name="VoiceTypeButtonsLayout" Grid.Column="1" Style="{StaticResource LayoutSettingsEnd}">
+                                <!-- Botões com evento Clicked e CommandParameter para identificar o gênero -->
+                                <Button Text="Feminino" Clicked="OnVoiceTypeClicked" CommandParameter="Feminino" Style="{StaticResource SettingButtonStyle}"/>
+                                <Button Text="Masculino" Clicked="OnVoiceTypeClicked" CommandParameter="Masculino" Style="{StaticResource SettingButtonStyle}" />
+                            </HorizontalStackLayout>
+                        </Grid>
+
+                        <BoxView HeightRequest="1" Color="LightGray" Margin="0" />
+
+                        <!-- Volume do Som (SLIDER e BOTÕES +/-) -->
+                        <Grid ColumnDefinitions="2*,8*" VerticalOptions="Center" Padding="60,0,60,0">
+
+                            <Label Grid.Column="0" Text="Volume do Som" Style="{StaticResource ConfigurationLabel}" />
+
+                            <HorizontalStackLayout Grid.Column="1" Style="{StaticResource LayoutSettingsEnd}">
+                                <!-- Botões com evento Clicked e CommandParameter para o ajuste -->
+                                <Button Text="-" Clicked="OnVolumeClicked" CommandParameter="Down" Style="{StaticResource VolumeButtonStyle}" />
+
+                                <!-- Slider com x:Name e evento ValueChanged -->
+                                <Slider x:Name="VolumeSlider" 
+                                        Style="{StaticResource SlideStyle}" 
+                                        Minimum="0" Maximum="1" Value="0.5" 
+                                        ValueChanged="OnVolumeSliderValueChanged"/>
+
+                                <Button Text="+" Clicked="OnVolumeClicked" CommandParameter="Up" Style="{StaticResource VolumeButtonStyle}" />
+                            </HorizontalStackLayout>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- SEÇÃO 3 - INTERFACE -->
+
+                <Label Text="Interface" Style="{StaticResource SettingsSectionLabel}" />
+
+                <Border Style="{StaticResource CardBorderStyle}">
+                    <Grid ColumnDefinitions="*,*" Padding="60,0,60,0">
+                        <Label Grid.Column="0" Text="Modo de Exibição" Style="{StaticResource ConfigurationLabel}" />
+                        <!-- Adicionado x:Name para referenciar no C# -->
+                        <HorizontalStackLayout x:Name="ThemeButtonsLayout" Grid.Column="1" Style="{StaticResource LayoutSettingsEnd}">
+                            <!-- Botões com evento Clicked e CommandParameter para o tema -->
+                            <Button Text="Claro" Clicked="OnThemeClicked" CommandParameter="Claro" Style="{StaticResource SettingButtonStyle}"/>
+                            <Button Text="Escuro" Clicked="OnThemeClicked" CommandParameter="Escuro" Style="{StaticResource SettingButtonStyle}"/>
+                        </HorizontalStackLayout>
+                    </Grid>
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

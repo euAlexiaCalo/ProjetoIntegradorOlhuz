@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:Olhuz.Components"
+             x:Class="Olhuz.Views.ReadImagePage"
+             Title="Descrever Imagens">
+
+    <Grid
+        RowDefinitions="2*,8*">
+
+        <components:HeaderView Grid.Row="0" />
+
+        <ScrollView Grid.Row="1">
+
+
+            <Grid Style="{StaticResource GridCollumnCardRead1}" Margin="100,40">
+                <Grid Grid.Column="0" Style="{StaticResource GridRowCardRead1}">
+
+                    <Border Grid.Row="0" Style="{StaticResource CardRead}">
+
+                        <Border Style="{StaticResource CardOutlineRead}">
+
+                            <Grid RowDefinitions="*,*" RowSpacing="80" >
+
+                                <Label Grid.Row="0" Text="Insira a imagem aqui" Style="{StaticResource CardTextLabelRead}" />
+
+                                <Button Grid.Row="1" Text="Adicionar Imagem" Style="{StaticResource ButtonAddImageRead}"/>
+
+                            </Grid>
+                        </Border>
+                    </Border>
+
+                    <Button Grid.Row="1" Text="Processar" Style="{StaticResource ProcessButtonImageRead}" />
+
+                </Grid>
+
+
+                <Grid Grid.Column="1" Style="{StaticResource GridRowCardRead1}">
+
+                    <Border Grid.Row="0" Style="{StaticResource CardRead}">
+
+                        <Grid Style="{StaticResource GridRowCardRead1}">
+
+                            <Label Grid.Row="0" Text="Descrição" Style="{StaticResource CardTitleLabelRead}"/>
+                            <Label Grid.Row="1" Text="Aguardando imagem para descrever. O aplicativo irá descrever o conteúdo da imagem para você." Style="{StaticResource CardDescriptionLabelRead}"/>
+
+                        </Grid>
+                    </Border>
+
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>

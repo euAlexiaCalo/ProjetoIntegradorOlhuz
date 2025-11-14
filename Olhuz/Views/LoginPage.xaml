@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Olhuz.Views.LoginPage"
+             BackgroundColor="#BDE1FF"
+             Shell.FlyoutBehavior="Disabled">
+
+    <Grid ColumnDefinitions="*,*" Style="{StaticResource ContainerGridStyle}">
+
+        <Grid Grid.Column="0" BackgroundColor="White">
+
+            <Image Source="seta.png" Style="{StaticResource BackImageButton}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnGoBackTapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <VerticalStackLayout Style="{StaticResource WelcomePanelStyle}">
+
+                <Image Style="{StaticResource AuthScreenLogoStyle}"/>
+
+                <Label
+                    Text="Bem-Vindo&#x0a;novamente ao olhuz" Style="{StaticResource HeaderLabelStyle}"/>
+
+            </VerticalStackLayout>
+        </Grid>
+
+        <Grid Grid.Column="1">
+
+            <Border Style="{StaticResource AuthFormContainerBorderStyle}" >
+
+                <VerticalStackLayout Spacing="16">
+
+                    <Label Text="Acesse sua Conta" Style="{StaticResource FormLabelStyle}"/>
+
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="E-mail" Style="{StaticResource FieldLabelStyle}" />
+
+                        <Border Style="{StaticResource FormEntryBorderStyle}">
+                            <Entry x:Name="EmailEntry" Placeholder="Digite seu email" Keyboard="Email" Style="{StaticResource FormEntryStyle}"/>
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Senha" Style="{StaticResource FieldLabelStyle}" />
+
+                        <Border Style="{StaticResource FormEntryBorderStyle}">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Entry x:Name="PasswordEntry" Grid.Column="0" Keyboard="Password" IsPassword="True" Style="{StaticResource FormEntryStyle}"/>
+
+                                <Image x:Name="PasswordIcon" Grid.Column="1" Source="eye_closed.png" HeightRequest="10" Margin="16,0,16,0">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnTogglePasswordVisibilityTapped" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+
+                            </Grid>
+                        </Border>
+
+                        <Label Text="Redefinir senha" Style="{StaticResource LinkTextStyle}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnForgotPasswordTapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </VerticalStackLayout>
+
+                    <Button Text="Entrar" x:Name="BtnEntrar" IsEnabled="True" Clicked="OnLoginClicked" Style="{StaticResource PrimaryButtonStyle}"/>
+
+                    <ActivityIndicator 
+                x:Name="Loading"
+                IsVisible="False"
+                Color="Blue"
+                IsRunning="True"
+                WidthRequest="25"
+                HeightRequest="25"
+                />
+
+                </VerticalStackLayout>
+            </Border>
+        </Grid>
+    </Grid>
+</ContentPage>

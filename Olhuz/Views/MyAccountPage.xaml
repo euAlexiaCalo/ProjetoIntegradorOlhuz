@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:Olhuz.Components"
+             x:Class="Olhuz.Views.MyAccountPage"
+             Title="Minha Conta">
+
+    <Grid
+		RowDefinitions="2*,8*">
+
+        <components:HeaderView Grid.Row="0" />
+
+        <ScrollView
+			Grid.Row="1">
+            <StackLayout Margin="100,30" Spacing="30">
+                <!-- Label de Boas-vindas com x:Name -->
+                <Label x:Name="WelcomeLabel"
+                       Text="Olá, [Carregando Nome...]"
+                       Style="{StaticResource UserNameLabel}" />
+
+                <!-- INFORMAÇÕES -->
+                <Border Style="{StaticResource UserDataCard}">
+                    <VerticalStackLayout Spacing="20">
+                        <Border Style="{StaticResource IndividualUserDataCard}">
+                            <!-- Label com x:Name para o Nome -->
+                            <Label x:Name="NameLabel" 
+                                   Text="Nome: "
+                                   FontSize="22"
+                                   TextColor="Black"/>
+                        </Border>
+                        <Border Style="{StaticResource IndividualUserDataCard}">
+                            <!-- Label com x:Name para a Data de Nascimento -->
+                            <Label x:Name="BirthDateLabel" 
+                                   Text="Data de Nascimento: "
+                                   FontSize="22"
+                                   TextColor="Black"/>
+                        </Border>
+                        <Border Style="{StaticResource IndividualUserDataCard}">
+                            <!-- Label com x:Name para o Email -->
+                            <Label x:Name="EmailLabel" 
+                                   Text="Email: "
+                                   FontSize="22"
+                                   TextColor="Black"/>
+                        </Border>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- BOTÕES -->
+                <HorizontalStackLayout
+                    Spacing="40"
+                    HorizontalOptions="Center">
+
+                    <Button Text="Alterar senha" 
+                            Clicked="OnChangePasswordClicked"
+                            Style="{StaticResource ChangePasswordButton}"/>
+
+                    <Button Text="Sair da conta" 
+                            Clicked="OnLogoutClicked"
+                            Style="{StaticResource LogoutButton}"/>
+                </HorizontalStackLayout>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
