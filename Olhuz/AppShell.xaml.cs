@@ -1,4 +1,7 @@
-﻿using Olhuz.Views;
+﻿// --------------------------------------------------------------
+// Autenticação e navegação em aplicativo MAUI
+// --------------------------------------------------------------
+using Olhuz.Views;
 
 namespace Olhuz
 {

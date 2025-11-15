@@ -458,7 +458,7 @@
 
     <!-- ==================== PÁGINA DE LEITURAS RECENTES ==================== -->
 
-    <!-- Cartões das curtas descrições da página de leituras recentes -->G
+    <!-- Cartões das curtas descrições da página de leituras recentes -->
     <Style TargetType="Border"  x:Key="CardReadingHistory">
         <Setter Property="StrokeThickness" Value="0"/>
         <Setter Property="StrokeShape" Value="RoundRectangle 16"/>

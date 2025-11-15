@@ -13,7 +13,7 @@
     FlyoutBehavior="Locked"
     Shell.TabBarIsVisible="False"
     Shell.NavBarIsVisible="False">
-
+    <!-- Define o estilo do menu lateral (Flyout) -->
 
     <!--Troca o menu padrão do Shell por um menu personalizado. Permite definir o *conteúdo* que vai ficar na lateral-->
     <Shell.FlyoutContent>
@@ -21,6 +21,7 @@
         <components:SideMenuView x:Name="CustomSideMenu" />
     </Shell.FlyoutContent>
 
+    <!-- Páginas iniciais (sem menu lateral) -->
     <ShellContent
         Title="Página Inicial"
         ContentTemplate="{DataTemplate views:MainPage}"
