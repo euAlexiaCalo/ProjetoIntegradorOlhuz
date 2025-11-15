@@ -58,18 +58,26 @@ namespace Olhuz.Api.Controllers
             try
             {
                 // Usa o método existente no repositório para verificar se o email já existe
-                var existingUser = await _userRepository.GetUserByEmailAsync(model.Email);
+                var user = await _userRepository.GetUserByEmailAsync(model.Email);
 
-                if (existingUser != null)
+                if (user != null)
                 {
                     // Se o usuário for encontrado, retorna a resposta de conflito imediatamente (409)
-                    return Conflict(new { message = "Este email já está em uso!" });
+                    return Conflict(new AuthResponse
+                    {
+                        Erro = true, // Indica falha
+                        Message = "Este email já está em uso!"
+                    });
                 }
             }
             catch (Exception ex)
             {
                 // Erro ao tentar consultar o banco de dados (ex: problema de conexão)
-                return StatusCode(500, new { message = $"Erro ao verificar e-mail: {ex.Message}" });
+                return StatusCode(500, new AuthResponse
+                {
+                    Erro = true, // Indica erro de servidor
+                    Message = $"Erro ao verificar e-mail: {ex.Message}"
+                });
             }
 
             // Tenta executar o bloco de código para criar um novo usuário
@@ -138,17 +146,29 @@ namespace Olhuz.Api.Controllers
                 await _userRepository.CreateUserAsync(novoUser);
 
                 // Retorna uma resposta de sucesso (200 OK) com uma mensagem em JSON
-                return Ok(new { message = "Usuário registrado com sucesso" });
+                return Ok(new AuthResponse
+                {
+                    Erro = false, // Indica sucesso
+                    Message = "Usuário registrado com sucesso"
+                });
             }
             // Tratamento de erros específicos de SQL Server de duplicidade (chave única) no email já existente no banco de dados
             catch (SqlException ex) when (ex.Number == 2627 || ex.Number == 2601)
             {
-                return Conflict(new { message = "Este email já está em uso!" });
+                return Conflict(new AuthResponse
+                {
+                    Erro = true, // Indica falha
+                    Message = "Erro de duplicidade no banco de dados (chave única)."
+                });
             }
             // Captura outros erros genéricos e retorna um status 500 (erro interno do servidor) com a mensagem de erro
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = $"{ex.Message}" });
+                return StatusCode(500, new AuthResponse
+                {
+                    Erro = true, // Indica falha no servidor
+                    Message = $"Erro interno: {ex.Message}"
+                });
             }
         }
 
@@ -165,9 +185,13 @@ namespace Olhuz.Api.Controllers
             if (user == null)
             {
                 // Se o usuário não for encontrado, retorna 401 Unauthorized
-                return Unauthorized(new { message = "Email ou senha inválidos" });
+                return Unauthorized(new AuthResponse
+                {
+                    Erro = true, // Indica falha
+                    Message = "Email ou senha inválidos"
+                });
             }
-            
+
             // 2. Recria a hash de login exatamente como no registro
             string PassWordHash = ComputeSha256Hash(model.PassWordHash);
             string Email = ComputeSha256Hash(model.Email);
@@ -175,7 +199,7 @@ namespace Olhuz.Api.Controllers
             string apiKey = "forcaPara_todos";
             // Criando a string para criptografia
             string PassWordHash2 = PassWordHash + Email + apiKey;
-            
+
             // Variável para armazenar o resultado da verificação da senha
             bool isPasswordValid;
 
@@ -193,11 +217,19 @@ namespace Olhuz.Api.Controllers
             // Se a senha for inválida, retorna 401 Unauthorized
             if (!isPasswordValid)
             {
-                return Unauthorized(new { message = "Email ou senha inválidos" });
+                return Unauthorized(new AuthResponse
+                {
+                    Erro = true, // <-- IMPORTANTE: Indica falha
+                    Message = "Email ou senha inválidos"
+                });
             }
 
             // Retorna 200 OK se o login for bem-sucedido
-            return Ok(new { message = "Login realizado com sucesso" });
+            return Ok(new AuthResponse
+            {
+                Erro = false, // <-- IMPORTANTE: Indica sucesso
+                Message = "Login realizado com sucesso"
+            });
         }
 
         // Se for usar Hash256:
