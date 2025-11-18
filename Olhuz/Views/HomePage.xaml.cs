@@ -10,25 +10,25 @@
         private async void OnReadImageTapped(object sender, TappedEventArgs e)
         {
             // Lógica para navegar para a página de Ler Imagens
-            await Shell.Current.GoToAsync($"{nameof(ReadImagePage)}");
+            await Shell.Current.GoToAsync($"///ReadImagePage");
         }
 
         private async void OnReadingHistoryTapped(object sender, TappedEventArgs e)
         {
             // Lógica para navegar para a página de Leituras Recentes
-            await Shell.Current.GoToAsync($"{nameof(ReadingHistoryPage)}");
+            await Shell.Current.GoToAsync($"///ReadingHistoryPage");
         }
 
         private async void OnSettingsTapped(object sender, TappedEventArgs e)
         {
             // Lógica para navegar para a página de Configurações
-            await Shell.Current.GoToAsync($"{nameof(SettingsPage)}");
+            await Shell.Current.GoToAsync($"///SettingsPage");
         }
 
         private async void OnMyAccountTapped(object sender, TappedEventArgs e)
         {
             // Lógica para navegar para a página de Minha Conta
-            await Shell.Current.GoToAsync($"{nameof(MyAccountPage)}");
+            await Shell.Current.GoToAsync($"///MyAccountPage");
         }
     }
 }

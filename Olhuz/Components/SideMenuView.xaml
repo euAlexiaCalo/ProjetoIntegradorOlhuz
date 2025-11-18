@@ -5,7 +5,7 @@
     xmlns:models="clr-namespace:Olhuz.Models"
     x:Class="Olhuz.Components.SideMenuView"
     x:Name="MenuView"
-    BackgroundColor="{StaticResource OneBlue}">
+    BackgroundColor="{AppThemeBinding Light={StaticResource OneBlue}, Dark={StaticResource DarkBackground}}">
 
     <!-- Conte�do principal -->
     <Grid RowDefinitions="2*, 8.5*">

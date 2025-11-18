@@ -32,10 +32,7 @@ namespace Olhuz.Views
             LoadCurrentSettings();
         }
 
-        /// <summary>
         /// Tenta carregar as cores de destaque dos botões a partir do dicionário de recursos XAML
-        /// usando as chaves "SevenBlue" e "Gray100".
-        /// </summary>
         private void LoadButtonColorsFromResources()
         {
             // 1. Cor para o fundo ATIVO (SevenBlue) e Cor do texto INATIVO
@@ -124,8 +121,6 @@ namespace Olhuz.Views
             double newVolume = e.NewValue;
 
             // Salvar o valor do volume (newVolume) no Model/Preferências
-
-            // Console.WriteLine($"Volume ajustado para: {newVolume:P0}"); // Imprime percentual
         }
 
         private void OnVolumeClicked(object sender, EventArgs e)
@@ -155,8 +150,25 @@ namespace Olhuz.Views
             {
                 _currentTheme = newTheme;
 
-                // Chamar o serviço de tema do MAUI para mudar o Application.Current.UserAppTheme
+                // Salva a preferência do tema
 
+                // ====================================================================
+                // ALTERAÇÃO ESSENCIAL: MUDAR O TEMA NATIVO DO MAUI
+                // ====================================================================
+                if (newTheme == "Claro")
+                {
+                    Application.Current.UserAppTheme = AppTheme.Light;
+                    // FALLBACK VISUAL: Garante que o fundo da página mude caso o XAML não esteja a aplicar os recursos de cor Light.
+                    this.BackgroundColor = GetResourceColor("OneBLue", Color.FromArgb("#E5F3FF")); // Cor base para tema claro
+                }
+                else if (newTheme == "Escuro")
+                {
+                    Application.Current.UserAppTheme = AppTheme.Dark;
+                    // FALLBACK VISUAL: Garante que o fundo da página mude caso o XAML não esteja a aplicar os recursos de cor Dark.
+                    this.BackgroundColor = GetResourceColor("DarkBackground", Color.FromArgb("#65737F"));
+                }
+
+                // Atualiza o destaque visual dos botões
                 UpdateThemeButtons(newTheme);
             }
         }
@@ -233,6 +245,7 @@ namespace Olhuz.Views
             {
                 if (child is Button button)
                 {
+                    // Compara o texto do botão com o tema ativo (ex: "Claro" vs "Claro")
                     if (button.Text == activeTheme)
                     {
                         // ESTADO ATIVO: Fundo SevenBlue, Texto White

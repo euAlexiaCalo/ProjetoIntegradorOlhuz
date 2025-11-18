@@ -5,38 +5,131 @@
              x:Class="Olhuz.Views.MyAccountPage"
              Title="Minha Conta">
 
-    <Grid
+	<Grid
 		RowDefinitions="2*,8*">
 
-        <components:HeaderView Grid.Row="0" />
+		<components:HeaderView Grid.Row="0" />
 
-        <ScrollView
+		<ScrollView
 			Grid.Row="1">
-            <StackLayout Margin="100,30" Spacing="30">
-                <!-- Label de Boas-vindas com x:Name -->
+			<VerticalStackLayout Margin="100,30" Spacing="30">
+
+				<!-- SEÇÃO 1 - LEITURA E TELA -->
+				<Label Text="Informações Pessoais" Style="{StaticResource SettingsSectionLabel}" />
+
+				<Border Style="{StaticResource CardBorderStyle}">
+					<HorizontalStackLayout Spacing="40" Padding="0" VerticalOptions="Start">
+						<Border WidthRequest="160" HeightRequest="160"
+								StrokeShape="Ellipse"
+                                Stroke="Gray"
+								StrokeThickness="2"
+								BackgroundColor="#E0E0E0"
+								HorizontalOptions="Start"
+								VerticalOptions="Center">
+							<Image x:Name="ProfileImage"
+								   Source="profile.png"
+							Aspect="AspectFill"
+							HorizontalOptions="Center"
+							VerticalOptions="Center" />
+									<!--
+							<Border.GestureRecognizers>
+								<TapGestureRecognizer Tapped="OnProfileImageTapped"/>
+							</Border.GestureRecognizers>-->
+						</Border>
+
+						<VerticalStackLayout Grid.Column="1" Spacing="16" VerticalOptions="Center">
+							<Label x:Name="NameLabel" Text="Nome: " FontSize="22" TextColor="Black"/>
+
+							<Label x:Name="BirthDateLabel" Text="Data de Nascimento: " FontSize="22" TextColor="Black"/>
+
+							<Label x:Name="EmailLabel" Text="Email: " FontSize="22" TextColor="Black"/>
+						</VerticalStackLayout>
+					</HorizontalStackLayout>
+				</Border>
+
+				<!-- SEÇÃO 2 - AÇÕES DA CONTA -->
+
+				<Label Text="Ações da Conta" Style="{StaticResource SettingsSectionLabel}"/>
+
+				<Border Style="{StaticResource CardBorderStyle}" >
+					<HorizontalStackLayout Spacing="40" VerticalOptions="Center" Padding="0">
+						<Button Text="Alterar Senha" Clicked="OnChangePasswordClicked" Style="{StaticResource ChangePasswordButton}" />
+
+						<Button Text="Sair da Conta" Clicked="OnLogoutClicked" Style="{StaticResource LogoutButton}" />
+
+						<Button Text="Excluir Conta" Clicked="OnDeleteClicked" Style="{StaticResource DeleteButton}" />
+					</HorizontalStackLayout>
+				</Border>
+
+				<!-- SEÇÃO 3 - INFORMAÇÕES ADICIONAIS -->
+
+				<Label Text="Informações Adicionais" Style="{StaticResource SettingsSectionLabel}" />
+
+				<Border Style="{StaticResource CardBorderStyle}">
+					<VerticalStackLayout Grid.Column="1" Spacing="16">
+						<Label x:Name="VersaoLabel" Text="" FontSize="22" TextColor="Black"/>
+
+						<Label>
+							<Label.FormattedText>
+								<FormattedString>
+									<Span  x:Name="TermosLabel" Text="Termos de privacide" FontSize="22" TextColor="Black" TextDecorations="Underline">
+										<Span.GestureRecognizers>
+											<TapGestureRecognizer Tapped="PoliticaDePrivacidadeTapped"/>
+										</Span.GestureRecognizers>
+									</Span>
+								</FormattedString>
+							</Label.FormattedText>
+						</Label>
+
+						<Label>
+							<Label.FormattedText>
+								<FormattedString>
+									<Span x:Name="SuporteLabel" Text="Suporte" FontSize="22" TextColor="Black" TextDecorations="Underline">
+										<Span.GestureRecognizers>
+											<TapGestureRecognizer Tapped="SuporteTapped"/>
+										</Span.GestureRecognizers>
+									</Span>
+								</FormattedString>
+							</Label.FormattedText>
+						</Label>
+
+					</VerticalStackLayout>
+				</Border>
+
+
+				<!-- Label de Boas-vindas com x:Name -->
+				<!--
                 <Label x:Name="WelcomeLabel"
                        Text="Olá, [Carregando Nome...]"
                        Style="{StaticResource UserNameLabel}" />
 
-                <!-- INFORMAÇÕES -->
+                -->
+				<!-- INFORMAÇÕES -->
+				<!--
                 <Border Style="{StaticResource UserDataCard}">
                     <VerticalStackLayout Spacing="20">
                         <Border Style="{StaticResource IndividualUserDataCard}">
-                            <!-- Label com x:Name para o Nome -->
+                            -->
+				<!-- Label com x:Name para o Nome -->
+				<!--
                             <Label x:Name="NameLabel" 
                                    Text="Nome: "
                                    FontSize="22"
                                    TextColor="Black"/>
                         </Border>
                         <Border Style="{StaticResource IndividualUserDataCard}">
-                            <!-- Label com x:Name para a Data de Nascimento -->
+                            -->
+				<!-- Label com x:Name para a Data de Nascimento -->
+				<!--
                             <Label x:Name="BirthDateLabel" 
                                    Text="Data de Nascimento: "
                                    FontSize="22"
                                    TextColor="Black"/>
                         </Border>
                         <Border Style="{StaticResource IndividualUserDataCard}">
-                            <!-- Label com x:Name para o Email -->
+                            -->
+				<!-- Label com x:Name para o Email -->
+				<!--
                             <Label x:Name="EmailLabel" 
                                    Text="Email: "
                                    FontSize="22"
@@ -44,8 +137,12 @@
                         </Border>
                     </VerticalStackLayout>
                 </Border>
+                
+                
 
-                <!-- BOTÕES -->
+                -->
+				<!-- BOTÕES -->
+				<!--
                 <HorizontalStackLayout
                     Spacing="40"
                     HorizontalOptions="Center">
@@ -57,8 +154,8 @@
                     <Button Text="Sair da conta" 
                             Clicked="OnLogoutClicked"
                             Style="{StaticResource LogoutButton}"/>
-                </HorizontalStackLayout>
-            </StackLayout>
-        </ScrollView>
-    </Grid>
+                </HorizontalStackLayout>-->
+			</VerticalStackLayout>
+		</ScrollView>
+	</Grid>
 </ContentPage>

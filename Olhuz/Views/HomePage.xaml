@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Olhuz.Views.HomePage"
              Title="Menu Principal"
-             BackgroundColor="#E5F3FF"
              Shell.FlyoutBehavior="Disabled">
 
     <Grid
@@ -60,9 +59,8 @@
                 <VerticalStackLayout
                     Style="{StaticResource CardStackLayoutHome}">
 
-                    <Image
-                        Source="read_image.png"
-                        Style="{StaticResource CardImageHome}"/>
+                    <Image Source="{AppThemeBinding Light=read_image.png, Dark=read_image_dark.png}" Style="{StaticResource CardImageHome}" />
+
 
                     <Label
                         Text="Ler Imagens"
@@ -89,7 +87,7 @@
                     Style="{StaticResource CardStackLayoutHome}">
 
                     <Image
-                        Source="reading_history.png"
+                        Source="{AppThemeBinding Light=reading_history.png, Dark=reading_history_dark.png}"
                         Style="{StaticResource CardImageHome}"/>
 
                     <Label
@@ -117,7 +115,7 @@
                     Style="{StaticResource CardStackLayoutHome}">
 
                     <Image
-                        Source="settings.png"
+                        Source="{AppThemeBinding Light=settings.png, Dark=settings_dark.png}"
                         Style="{StaticResource CardImageHome}"/>
 
                     <Label
@@ -145,7 +143,7 @@
                     Style="{StaticResource CardStackLayoutHome}">
 
                     <Image
-                        Source="account.png"
+                        Source="{AppThemeBinding Light=account.png, Dark=account_dark.png}"
                         Style="{StaticResource CardImageHome}"/>
 
                     <Label

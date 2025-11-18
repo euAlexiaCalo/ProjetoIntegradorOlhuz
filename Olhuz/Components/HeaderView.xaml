@@ -12,7 +12,7 @@
         <Label
             Text="{Binding Title, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
             FontSize="50"
-            TextColor="Black"
+            TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"
             VerticalOptions="End"
             FontAttributes="Bold"/>
     </StackLayout>

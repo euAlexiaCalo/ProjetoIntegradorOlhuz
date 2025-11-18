@@ -11,7 +11,10 @@
     <Color x:Key="FiveBlue">#0067B9</Color>
     <Color x:Key="SixBlue">#0F1A5A</Color>
     <Color x:Key="SevenBlue">#002C54</Color>
+    <Color x:Key="EightBlue">#3284B1</Color>
+    <Color x:Key="NineBlue">#1E3C88</Color>
     <Color x:Key="LightBlack">#1A1A1A</Color>
+    <Color x:Key="DarkBackground">#65737F</Color>
     <Color x:Key="LInk">#0034C4</Color>
     
     
