@@ -69,10 +69,10 @@
 					<VerticalStackLayout Grid.Column="1" Spacing="16">
                         <Label x:Name="VersaoLabel" Text="" FontSize="22" TextColor="{AppThemeBinding Light={StaticResource ColorBlack}, Dark={StaticResource ColorWhite}}"/>
 
-						<Label>
+                        <Label TextColor="{AppThemeBinding Light={StaticResource ColorBlack}, Dark={StaticResource ColorWhite}}">
 							<Label.FormattedText>
 								<FormattedString>
-                                    <Span  x:Name="TermosLabel" Text="Termos de privacide" FontSize="22" TextColor="{AppThemeBinding Light={StaticResource ColorBlack}, Dark={StaticResource ColorWhite}}" TextDecorations="Underline">
+                                    <Span  x:Name="TermosLabel" Text="Termos de privacide" FontSize="22" TextDecorations="Underline">
 										<Span.GestureRecognizers>
 											<TapGestureRecognizer Tapped="PoliticaDePrivacidadeTapped"/>
 										</Span.GestureRecognizers>
@@ -81,10 +81,10 @@
 							</Label.FormattedText>
 						</Label>
 
-						<Label>
+                        <Label TextColor="{AppThemeBinding Light={StaticResource ColorBlack}, Dark={StaticResource ColorWhite}}">
 							<Label.FormattedText>
 								<FormattedString>
-                                    <Span x:Name="SuporteLabel" Text="Suporte" FontSize="22" TextColor="{AppThemeBinding Light={StaticResource ColorBlack}, Dark={StaticResource ColorWhite}}" TextDecorations="Underline">
+                                    <Span x:Name="SuporteLabel" Text="Suporte" FontSize="22" TextDecorations="Underline">
 										<Span.GestureRecognizers>
 											<TapGestureRecognizer Tapped="SuporteTapped"/>
 										</Span.GestureRecognizers>
