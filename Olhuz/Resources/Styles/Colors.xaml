@@ -14,11 +14,87 @@
     <Color x:Key="EightBlue">#3284B1</Color>
     <Color x:Key="NineBlue">#1E3C88</Color>
     <Color x:Key="LightBlack">#1A1A1A</Color>
-    <Color x:Key="DarkBackground">#65737F</Color>
+
+    <!-- Fundo principal da tela no modo claro -->
+    <Color x:Key="LightBackground">#E3F2FD</Color>
+    
+    <!-- Cor base para cards navegáveis e o menu fixo -->
+    <Color x:Key="LightNavCardBackground">#A8DAFF</Color>
+    <!-- Cor de fundo ao passar o mouse sobre cards navegáveis -->
+    <Color x:Key="LightNavCardHover">#78C2FF</Color>
+    <!-- Cor de fundo para item selecionado no menu -->
+    <Color x:Key="LightMenuItemSelected">#E3F2FD</Color>
+    <!-- Cor de fundo para itens do menu ao passar o mouse -->
+    <Color x:Key="LightMenuItemHover">#CED5DC</Color>
+
+    <!-- Cor de fundo para cards fixos -->
+    <Color x:Key="LightFixedCardBackground">#FFFFFF</Color>
+    <!-- Cor para cards de adicionar imagens e leituras recentes -->
+    <Color x:Key="LightContentCardBackground">#C6DEEF</Color>
+
+    <!-- Cor para botões primarios de ação (processar/adicionar/acessar/alterar) -->
+    <Color x:Key="LightPrimaryButton">#3884CF</Color>
+    <!-- Cor ao passar o mouser sobre os botões primarios de ação -->
+    <Color x:Key="LightPrimaryButtonHover">#2668AA</Color>
+
+    <!-- Cor para botões secundários (neutros ou desativados) -->
+    <Color x:Key="LightSecondaryButton">#B8B8B8</Color>
+    <!-- Cor ao passar o mouser sobre os botões secundários -->
+    <Color x:Key="LightSecondaryButtonHover">#808080</Color>
+
+    <!-- Cor para botões de alerta, atenção ou ações destrutivas -->
+    <Color x:Key="LightDestructiveButton">#BD4D4D</Color>
+    <!-- Cor ao passar o mouser sobre os botões que requer mais atenção -->
+    <Color x:Key="LightDestructiveButtonHover">#943D3D</Color>
+
+
+    <Color x:Key="ColorWhite">#FFFFFF</Color>
+    <!-- Cor para texto branco -->
+    <Color x:Key="ColorBlack">#000000</Color>
+    <!-- Cor para texto preto -->
+    <Color x:Key="ColorDarkGray">#202020</Color>
+    <!-- Cor para texto cinza mais escuro -->
+
+
+
+    <!-- Fundo principal da tela no modo escuro -->
+    <Color x:Key="DarkBackground">#1F222B</Color>
+    
+    <!-- Cor base para cards navegáveis e o menu fixo -->
+    <Color x:Key="DarkNavCardBackground">#2B3246</Color>
+    <!-- Cor de fundo ao passar o mouse sobre cards navegáveis -->
+    <Color x:Key="DarkNavCardHover">#4F5567</Color>
+    <!-- Cor de fundo para item selecionado no menu -->
+    <Color x:Key="DarkMenuItemSelected">#1F222B</Color>
+    <!-- Cor de fundo para itens do menu ao passar o mouse -->
+    <Color x:Key="DarkMenuItemHover">#6B6D71</Color>
+    
+    <!-- Cor de fundo para cards fixos -->
+    <Color x:Key="DarkFixedCardBackground">#262A36</Color>
+    <!-- Cor para cards de adicionar imagens e leituras recentes -->
+    <Color x:Key="DarkContentCardBackground">#303545</Color>
+
+    <!-- Cor para botões primarios de ação (processar/adicionar/acessar/alterar) -->
+    <Color x:Key="DarkPrimaryButton">#5298D2</Color>
+    <!-- Cor ao passar o mouser sobre os botões primarios de ação -->
+    <Color x:Key="DarkPrimaryButtonHover">#2E88D2</Color>
+
+    <!-- Cor para botões secundários (neutros ou desativados) -->
+    <Color x:Key="DarkSecondaryButton">#5D6065</Color>
+    <!-- Cor ao passar o mouser sobre os botões secundários -->
+    <Color x:Key="DarkSecondaryButtonHover">#484A4E</Color>
+
+    <!-- Cor para botões de alerta, atenção ou ações destrutivas -->
+    <Color x:Key="DarkDestructiveButton">#863636</Color>
+    <!-- Cor ao passar o mouser sobre os botões que requer mais atenção -->
+    <Color x:Key="DarkDestructiveButtonHover">#842424</Color>
+
+
+
     <Color x:Key="LInk">#0034C4</Color>
-    
-    
-    
+
+
+
 
     <!-- Note: For Android please see also Platforms\Android\Resources\values\colors.xml -->
 

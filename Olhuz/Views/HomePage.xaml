@@ -30,13 +30,13 @@
                     FontSize="60"
                     VerticalOptions="Center"
                     HorizontalOptions="End"
-                    TextColor="Black" />
+                    TextColor="{AppThemeBinding Light={StaticResource ColorBlack}, Dark={StaticResource ColorWhite}}" />
             </HorizontalStackLayout>
             <Label
                 Grid.Row="1"
                 Text="A técnologia que ilumina o invisível"
                 FontSize="18"
-                TextColor="Black"/>
+                TextColor="{AppThemeBinding Light={StaticResource ColorBlack}, Dark={StaticResource ColorWhite}}"/>
         </Grid>
 
         <Grid

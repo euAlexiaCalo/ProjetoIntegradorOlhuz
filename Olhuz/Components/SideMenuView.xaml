@@ -5,7 +5,7 @@
     xmlns:models="clr-namespace:Olhuz.Models"
     x:Class="Olhuz.Components.SideMenuView"
     x:Name="MenuView"
-    BackgroundColor="{AppThemeBinding Light={StaticResource OneBlue}, Dark={StaticResource DarkBackground}}">
+    BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
 
     <!-- Conte�do principal -->
     <Grid RowDefinitions="2*, 8.5*">
@@ -28,7 +28,7 @@
             <Label
                 Text="Olhuz"
                 FontSize="40"
-				TextColor="Black"
+				TextColor="{AppThemeBinding Light={StaticResource ColorBlack}, Dark={StaticResource ColorWhite}}"
                 VerticalOptions="Center"/>
 
         </HorizontalStackLayout>
@@ -36,7 +36,7 @@
         <!-- Menu (Linha 1) -->
         <Border
             Grid.Row="1"
-            BackgroundColor="{StaticResource TwoBlue}"
+            BackgroundColor="{AppThemeBinding Light={StaticResource LightNavCardBackground}, Dark={StaticResource DarkNavCardBackground}}"
             StrokeShape="RoundRectangle 0 200 0 0"
             StrokeThickness="0"
             Shadow="{x:Null}"
@@ -62,7 +62,7 @@
                                         <VisualState x:Name="Normal" />
                                         <VisualState x:Name="PointerOver">
                                             <VisualState.Setters>
-                                                <Setter Property="BackgroundColor" Value="{StaticResource FourBlue}" />
+                                                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightMenuItemHover}, Dark={StaticResource DarkMenuItemHover}}" />
                                             </VisualState.Setters>
                                         </VisualState>
                                     </VisualStateGroup>
@@ -71,7 +71,7 @@
                                 <Border.Triggers>
                                     <!-- A propriedade IsSelected do Model (MenuItemModel) ainda controla o visual -->
                                     <DataTrigger TargetType="Border" Binding="{Binding IsSelected}" Value="True">
-                                        <Setter Property="BackgroundColor" Value="{StaticResource OneBlue}" />
+                                        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightMenuItemSelected}, Dark={StaticResource DarkMenuItemSelected}}" />
                                     </DataTrigger>
 
                                     <DataTrigger TargetType="Border" Binding="{Binding IsSelected}" Value="False">
@@ -85,13 +85,11 @@
                                 </Border.GestureRecognizers>
 
                                 <HorizontalStackLayout Spacing="24">
-                                    <Image
-                                        Source="{Binding Icon}"
-                                        HeightRequest="30"
-                                        Aspect="AspectFit"/>
+                                    <Image HeightRequest="30" Aspect="AspectFit" Source="{Binding Icon}" />
+
                                     <Label
                                         Text="{Binding Title}"
-                                        TextColor="Black"
+                                        TextColor="{AppThemeBinding Light={StaticResource ColorBlack}, Dark={StaticResource ColorWhite}}"
                                         FontSize="24"
                                         VerticalOptions="Center"/>
                                 </HorizontalStackLayout>

@@ -3,11 +3,12 @@
 <ResourceDictionary 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    
 
     <!-- ==================== ESTILIZAÇÃO GERAL DAS PÁGINAS DE CONTEÚDO ==================== -->
 
     <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource OneBlue}, Dark={StaticResource DarkBackground}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}" />
     </Style>
 
 
@@ -263,7 +264,7 @@
     <!-- Título dos cartões do menu principal -->
 
     <Style TargetType="Label" x:Key="CardTitleLabelHome">
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource ColorBlack}, Dark={StaticResource ColorWhite}}"/>
         <Setter Property="TextTransform" Value="Uppercase"/>
         <Setter Property="HorizontalTextAlignment" Value="Center"/>
         <Setter Property="FontSize" Value="30"/>
@@ -271,9 +272,8 @@
     </Style>
 
     <!-- Subtítulo dos cartões do menu principal -->
-
     <Style TargetType="Label" x:Key="CardSubtitleLabelHome">
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource ColorBlack}, Dark={StaticResource ColorWhite}}"/>
         <Setter Property="HorizontalTextAlignment" Value="Center"/>
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="Margin" Value="0,0,0,0"/>
@@ -284,7 +284,7 @@
     <Style TargetType="Border" x:Key="CardButtonHome">
         <Setter Property="StrokeShape" Value="RoundRectangle 20" />
         <Setter Property="StrokeThickness" Value="0" />
-        <Setter Property="Shadow" Value="0 0 8 Gray 0.3" />
+        <Setter Property="Shadow" Value="0 0 16 Black 0.1" />
         <Setter Property="WidthRequest" Value="340" />
         <Setter Property="Padding" Value="20, 60" />
         <Setter Property="Margin" Value="16"/>
@@ -295,14 +295,14 @@
 
                     <VisualState x:Name="Normal">
                         <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource ThreeBlue}, Dark={StaticResource SevenBlue}}"/>
+                            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightNavCardBackground}, Dark={StaticResource DarkNavCardBackground}}"/>
                         </VisualState.Setters>
                     </VisualState>
 
                     <VisualState x:Name="PointerOver">
                         <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource FourBlue}, Dark={StaticResource NineBlue}}" />
-                            <Setter Property="Shadow" Value="0 0 16 Gray 0.4" />
+                            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightNavCardHover}, Dark={StaticResource DarkNavCardHover}}" />
+                            <Setter Property="Shadow" Value="0 0 16 Black 0.2" />
                         </VisualState.Setters>
                     </VisualState>
 
@@ -335,11 +335,11 @@
     </Style>
 
     <!-- Cartões para inserir imagem e descreve-lá -->
-    <Style TargetType="Border"  x:Key="CardRead">
+    <Style TargetType="Border"  x:Key="CardRead1">
         <Setter Property="StrokeThickness" Value="0"/>
         <Setter Property="StrokeShape" Value="RoundRectangle 16"/>
-        <Setter Property="Shadow" Value="0 0 8 Gray 0.2"/>
-        <Setter Property="BackgroundColor" Value="{StaticResource TwoBlue}"/>
+        <Setter Property="Shadow" Value="0 0 12 Black 0.1"/>
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightContentCardBackground}, Dark={StaticResource DarkContentCardBackground}}"/>
         <Setter Property="HeightRequest" Value="480"/>
         <Setter Property="WidthRequest" Value="580"/>
         <Setter Property="VerticalOptions" Value="Center"/>
@@ -349,7 +349,7 @@
 
     <!-- Linha de contorno interno do Card -->
     <Style TargetType="Border"  x:Key="CardOutlineRead">
-        <Setter Property="Stroke" Value="{StaticResource SevenBlue}"/>
+        <Setter Property="Stroke" Value="{AppThemeBinding Light={StaticResource ColorBlack}, Dark={StaticResource ColorWhite}}"/>
         <Setter Property="StrokeThickness" Value="2"/>
         <Setter Property="StrokeShape" Value="RoundRectangle 16"/>
         <Setter Property="StrokeDashArray" Value="8,4"/>
@@ -362,12 +362,24 @@
         <Setter Property="Padding" Value="60,40"/>
     </Style>
 
+    <Style TargetType="Border"  x:Key="CardRead2">
+        <Setter Property="StrokeThickness" Value="0"/>
+        <Setter Property="StrokeShape" Value="RoundRectangle 16"/>
+        <Setter Property="Shadow" Value="0 0 12 Black 0.1"/>
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightFixedCardBackground}, Dark={StaticResource DarkFixedCardBackground}}"/>
+        <Setter Property="HeightRequest" Value="480"/>
+        <Setter Property="WidthRequest" Value="580"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="Padding" Value="30"/>
+    </Style>
+
     <!-- Botão de adicionar imagem na página de ler imagem -->
     <Style TargetType="Button" x:Key="ButtonAddImageRead">
-        <Setter Property="TextColor" Value="White"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource ColorWhite}, Dark={StaticResource ColorWhite}}"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="CornerRadius" Value="30"/>
-        <Setter Property="Shadow" Value="0 0 8 Transparent 0.2" />
+        <Setter Property="Shadow" Value="0 0 12 Transparent 0.1" />
         <Setter Property="WidthRequest" Value="260"/>
         <Setter Property="HeightRequest" Value="60"/>
         <Setter Property="VerticalOptions" Value="Center"/>
@@ -378,14 +390,14 @@
 
                     <VisualState x:Name="Normal">
                         <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="{StaticResource SevenBlue}" />
+                            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryButton}, Dark={StaticResource DarkPrimaryButton}}" />
                         </VisualState.Setters>
                     </VisualState>
 
                     <VisualState x:Name="PointerOver">
                         <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="{StaticResource SixBlue}" />
-                            <Setter Property="Shadow" Value="0 0 8 Gray 0.2" />
+                            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryButtonHover}, Dark={StaticResource DarkPrimaryButtonHover}}" />
+                            <Setter Property="Shadow" Value="0 0 12 Black 0.1" />
                         </VisualState.Setters>
                     </VisualState>
 
@@ -396,10 +408,10 @@
 
     <!-- Botão de processar imagem na página de ler imagem -->
     <Style TargetType="Button" x:Key="ProcessButtonImageRead">
-        <Setter Property="TextColor" Value="White"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource ColorWhite}, Dark={StaticResource ColorWhite}}"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="CornerRadius" Value="30"/>
-        <Setter Property="Shadow" Value="0 0 8 Transparent 0.2" />
+        <Setter Property="Shadow" Value="0 0 12 Transparent 0.1" />
         <Setter Property="WidthRequest" Value="220"/>
         <Setter Property="HeightRequest" Value="60"/>
         <Setter Property="VerticalOptions" Value="Center"/>
@@ -410,14 +422,14 @@
 
                     <VisualState x:Name="Normal">
                         <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="{StaticResource SevenBlue}" />
+                            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryButton}, Dark={StaticResource DarkPrimaryButton}}" />
                         </VisualState.Setters>
                     </VisualState>
 
                     <VisualState x:Name="PointerOver">
                         <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="{StaticResource SixBlue}" />
-                            <Setter Property="Shadow" Value="0 0 8 Gray 0.2" />
+                            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryButtonHover}, Dark={StaticResource DarkPrimaryButtonHover}}" />
+                            <Setter Property="Shadow" Value="0 0 12 Black 0.1" />
                         </VisualState.Setters>
                     </VisualState>
 
@@ -428,7 +440,7 @@
 
     <!-- Título interno do cartão de inserir imagem -->
     <Style TargetType="Label" x:Key="CardTextLabelRead">
-        <Setter Property="TextColor" Value="Black"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource ColorBlack}, Dark={StaticResource ColorWhite}}"/>
         <Setter Property="HorizontalTextAlignment" Value="Center"/>
         <Setter Property="VerticalTextAlignment" Value="Center"/>
         <Setter Property="FontSize" Value="30"/>
@@ -437,7 +449,7 @@
 
     <!-- Título interno do cartão de descrever imagem -->
     <Style TargetType="Label" x:Key="CardTitleLabelRead">
-        <Setter Property="TextColor" Value="Black"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource ColorBlack}, Dark={StaticResource ColorWhite}}"/>
         <Setter Property="HorizontalTextAlignment" Value="Start"/>
         <Setter Property="VerticalTextAlignment" Value="Start"/>
         <Setter Property="FontSize" Value="Large"/>
@@ -447,7 +459,7 @@
 
     <!-- Texto interno do cartão de descrever imagem -->
     <Style TargetType="Label" x:Key="CardDescriptionLabelRead">
-        <Setter Property="TextColor" Value="{StaticResource LightBlack}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource ColorDarkGray}, Dark={StaticResource ColorWhite}}"/>
         <Setter Property="HorizontalTextAlignment" Value="Justify"/>
         <Setter Property="VerticalTextAlignment" Value="Start"/>
         <Setter Property="FontSize" Value="22"/>
@@ -462,8 +474,8 @@
     <Style TargetType="Border"  x:Key="CardReadingHistory">
         <Setter Property="StrokeThickness" Value="0"/>
         <Setter Property="StrokeShape" Value="RoundRectangle 16"/>
-        <Setter Property="Shadow" Value="0 0 16 Gray 0.2"/>
-        <Setter Property="BackgroundColor" Value="{StaticResource TwoBlue}"/>
+        <Setter Property="Shadow" Value="0 0 12 Black 0.1"/>
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightContentCardBackground}, Dark={StaticResource DarkContentCardBackground}}"/>
         <Setter Property="HeightRequest" Value="300"/>
         <Setter Property="WidthRequest" Value="400"/>
         <Setter Property="Padding" Value="26"/>
@@ -483,14 +495,14 @@
     <!-- Data da leitura -->
     <Style TargetType="Label" x:Key="DateLabelReadingHistory">
         <Setter Property="FontSize" Value="28"/>
-        <Setter Property="TextColor" Value="Black"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource ColorBlack}, Dark={StaticResource ColorWhite}}"/>
         <Setter Property="FontAttributes" Value="Bold"/>
     </Style>
 
     <!-- Tipo da leitura -->
     <Style TargetType="Label" x:Key="TypeLabelReadingHistory">
         <Setter Property="FontSize" Value="26"/>
-        <Setter Property="TextColor" Value="Black"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource ColorBlack}, Dark={StaticResource ColorWhite}}"/>
         <Setter Property="FontAttributes" Value="Bold"/>
         <Setter Property="MaxLines" Value="1"/>
         <Setter Property="Margin" Value="0,4,0,0"/>
@@ -498,18 +510,18 @@
 
     <!-- Curta descrição da leitura -->
     <Style TargetType="Label" x:Key="DescriptionLabelReadingHistory">
-        <Setter Property="TextColor" Value="{StaticResource LightBlack}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource ColorDarkGray}, Dark={StaticResource ColorWhite}}"/>
         <Setter Property="FontSize" Value="22"/>
         <Setter Property="MaxLines" Value="2"/>
         <Setter Property="Margin" Value="0,0,0,24"/>
     </Style>
 
-    <!-- Botão de acessar a descrição completa da imagem -->
+    <!-- Botão de acessar a descrição completa -->
     <Style TargetType="Button" x:Key="AccessButtonReadingHistory">
-        <Setter Property="TextColor" Value="White"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource ColorWhite}, Dark={StaticResource ColorWhite}}"/>
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="CornerRadius" Value="24"/>
-        <Setter Property="Shadow" Value="0 0 8 Transparent 0.2" />
+        <Setter Property="Shadow" Value="0 0 8 Transparent 0.1" />
         <Setter Property="WidthRequest" Value="160"/>
         <Setter Property="HeightRequest" Value="48"/>
         <Setter Property="VerticalOptions" Value="End"/>
@@ -520,14 +532,14 @@
 
                     <VisualState x:Name="Normal">
                         <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="{StaticResource SevenBlue}" />
+                            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryButton}, Dark={StaticResource DarkPrimaryButton}}" />
                         </VisualState.Setters>
                     </VisualState>
 
                     <VisualState x:Name="PointerOver">
                         <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="{StaticResource SixBlue}" />
-                            <Setter Property="Shadow" Value="0 0 8 Gray 0.2" />
+                            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryButtonHover}, Dark={StaticResource DarkPrimaryButtonHover}}" />
+                            <Setter Property="Shadow" Value="0 0 8 Black 0.1" />
                         </VisualState.Setters>
                     </VisualState>
 
@@ -543,11 +555,11 @@
 
     <!-- Cartão de uma seção com configurações -->
     <Style TargetType="Border" x:Key="CardBorderStyle">
-        <Setter Property="BackgroundColor" Value="White" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightFixedCardBackground}, Dark={StaticResource DarkFixedCardBackground}}" />
         <Setter Property="StrokeShape" Value="RoundRectangle 16" />
-        <Setter Property="Shadow" Value="0 0 16 Gray 0.2" />
+        <Setter Property="Shadow" Value="0 0 12 Black 0.1" />
         <Setter Property="Padding" Value="40,20" />
-        <Setter Property="Margin" Value="0,10" />
+        <Setter Property="Margin" Value="20,10" />
         <Setter Property="StrokeThickness" Value="0" />
         <Setter Property="VerticalOptions" Value="Start" />
         <Setter Property="HorizontalOptions" Value="Fill" />
@@ -555,7 +567,7 @@
 
     <!-- Rótulo da seção de configurações -->
     <Style TargetType="Label" x:Key="SettingsSectionLabel">
-        <Setter Property="TextColor" Value="{StaticResource SevenBlue}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource ColorBlack}, Dark={StaticResource ColorWhite}}" />
         <Setter Property="FontSize" Value="Large" />
         <Setter Property="Margin" Value="60,0,0,0" />
     </Style>
@@ -569,7 +581,7 @@
 
     <!-- Rótulo especifico de uma configuração -->
     <Style TargetType="Label" x:Key="ConfigurationLabel">
-        <Setter Property="TextColor" Value="Black" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource ColorBlack}, Dark={StaticResource ColorWhite}}" />
         <Setter Property="FontSize" Value="20" />
         <Setter Property="VerticalTextAlignment" Value="Center" />
         <Setter Property="HorizontalTextAlignment" Value="Start" />
@@ -577,22 +589,20 @@
 
     <!-- Botões de velocidade da fala -->
     <Style TargetType="Button" x:Key="SettingButtonStyle">
-        <Setter Property="TextColor" Value="{StaticResource SevenBlue}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource ColorBlack}, Dark={StaticResource ColorWhite}}" />
         <Setter Property="FontSize" Value="Micro" />
         <Setter Property="FontAttributes" Value="Bold" />
-        <Setter Property="BackgroundColor" Value="Transparent" />
-        <Setter Property="CornerRadius" Value="20" />
-        <Setter Property="BorderColor" Value="{StaticResource SevenBlue}" />
-        <Setter Property="BorderWidth" Value="2" />
-        <Setter Property="Padding" Value="25,10" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryButton}, Dark={StaticResource DarkPrimaryButton}}" />
+        <Setter Property="CornerRadius" Value="28" />
+        <Setter Property="Padding" Value="28,14" />
         <Setter Property="Margin" Value="0" />
     </Style>
 
     <!-- Botões de aumentar/diminuir volume -->
     <Style TargetType="Button" x:Key="VolumeButtonStyle">
-        <Setter Property="TextColor" Value="Black" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource ColorWhite}, Dark={StaticResource ColorWhite}}" />
         <Setter Property="FontSize" Value="Medium" />
-        <Setter Property="BackgroundColor" Value="LightGray" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightSecondaryButton}, Dark={StaticResource DarkSecondaryButton}}" />
         <Setter Property="CornerRadius" Value="40" />
         <Setter Property="HeightRequest" Value="40" />
         <Setter Property="HorizontalOptions" Value="Center" />
@@ -606,16 +616,16 @@
         <Setter Property="Minimum" Value="0" />
         <Setter Property="Maximum" Value="100" />
         <Setter Property="Value" Value="60" />
-        <Setter Property="ThumbColor" Value="{StaticResource SevenBlue}" />
-        <Setter Property="MinimumTrackColor" Value="{StaticResource SevenBlue}" />
-        <Setter Property="MaximumTrackColor" Value="LightGray" />
+        <Setter Property="ThumbColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryButton}, Dark={StaticResource DarkPrimaryButton}}" />
+        <Setter Property="MinimumTrackColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryButton}, Dark={StaticResource DarkPrimaryButton}}" />
+        <Setter Property="MaximumTrackColor" Value="{AppThemeBinding Light={StaticResource LightSecondaryButton}, Dark={StaticResource DarkSecondaryButton}}" />
         <Setter Property="MinimumWidthRequest" Value="600" />
         <Setter Property="Margin" Value="0,5,0,0" />
     </Style>
-    <!-- Botão de ativar/desativar -->
+    <!-- Botão de ativar/desativar leitura de tela -->
     <Style TargetType="Switch" x:Key="SettingSwitch">
         <Setter Property="IsToggled" Value="True" />
-        <Setter Property="OnColor" Value="{StaticResource SevenBlue}" />
+        <Setter Property="OnColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryButton}, Dark={StaticResource DarkPrimaryButton}}" />
         <Setter Property="ScaleX" Value="2.0" />
         <Setter Property="ScaleY" Value="1.8" />
         <Setter Property="MinimumWidthRequest" Value="0" />
@@ -631,10 +641,10 @@
 
     <!-- Botão de alterar senha -->
     <Style TargetType="Button" x:Key="ChangePasswordButton">
-        <Setter Property="TextColor" Value="White"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource ColorWhite}, Dark={StaticResource ColorWhite}}"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="CornerRadius" Value="30"/>
-        <Setter Property="Shadow" Value="0 0 8 Transparent 0.2" />
+        <Setter Property="Shadow" Value="0 0 8 Transparent 0.1" />
         <Setter Property="WidthRequest" Value="180"/>
         <Setter Property="HeightRequest" Value="60"/>
         <Setter Property="VerticalOptions" Value="Center"/>
@@ -645,14 +655,14 @@
 
                     <VisualState x:Name="Normal">
                         <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="{StaticResource FiveBlue}" />
+                            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryButton}, Dark={StaticResource DarkPrimaryButton}}" />
                         </VisualState.Setters>
                     </VisualState>
 
                     <VisualState x:Name="PointerOver">
                         <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="{StaticResource SevenBlue}" />
-                            <Setter Property="Shadow" Value="0 0 8 Gray 0.2" />
+                            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryButtonHover}, Dark={StaticResource DarkPrimaryButtonHover}}" />
+                            <Setter Property="Shadow" Value="0 0 8 Black 0.1" />
                         </VisualState.Setters>
                     </VisualState>
 
@@ -663,10 +673,10 @@
 
     <!-- Botão de sair da conta -->
     <Style TargetType="Button" x:Key="LogoutButton">
-        <Setter Property="TextColor" Value="White"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource ColorWhite}, Dark={StaticResource ColorWhite}}"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="CornerRadius" Value="30"/>
-        <Setter Property="Shadow" Value="0 0 8 Transparent 0.2" />
+        <Setter Property="Shadow" Value="0 0 8 Transparent 0.1" />
         <Setter Property="WidthRequest" Value="180"/>
         <Setter Property="HeightRequest" Value="60"/>
         <Setter Property="VerticalOptions" Value="Center"/>
@@ -677,14 +687,14 @@
 
                     <VisualState x:Name="Normal">
                         <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="{StaticResource EightBlue}" />
+                            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightSecondaryButton}, Dark={StaticResource DarkSecondaryButton}}" />
                         </VisualState.Setters>
                     </VisualState>
 
                     <VisualState x:Name="PointerOver">
                         <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="{StaticResource SevenBlue}" />
-                            <Setter Property="Shadow" Value="0 0 8 Gray 0.2" />
+                            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightSecondaryButtonHover}, Dark={StaticResource DarkSecondaryButtonHover}}" />
+                            <Setter Property="Shadow" Value="0 0 8 Black 0.1" />
                         </VisualState.Setters>
                     </VisualState>
 
@@ -695,10 +705,10 @@
 
     <!-- Botão de deletar conta -->
     <Style TargetType="Button" x:Key="DeleteButton">
-        <Setter Property="TextColor" Value="White"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource ColorWhite}, Dark={StaticResource ColorWhite}}"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="CornerRadius" Value="30"/>
-        <Setter Property="Shadow" Value="0 0 8 Transparent 0.2" />
+        <Setter Property="Shadow" Value="0 0 8 Transparent 0.1" />
         <Setter Property="WidthRequest" Value="180"/>
         <Setter Property="HeightRequest" Value="60"/>
         <Setter Property="VerticalOptions" Value="Center"/>
@@ -709,14 +719,14 @@
 
                     <VisualState x:Name="Normal">
                         <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="{StaticResource Gray400}" />
+                            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightDestructiveButton}, Dark={StaticResource DarkDestructiveButton}}" />
                         </VisualState.Setters>
                     </VisualState>
 
                     <VisualState x:Name="PointerOver">
                         <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="{StaticResource SevenBlue}" />
-                            <Setter Property="Shadow" Value="0 0 8 Gray 0.2" />
+                            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightDestructiveButtonHover}, Dark={StaticResource DarkDestructiveButtonHover}}" />
+                            <Setter Property="Shadow" Value="0 0 8 Black 0.1" />
                         </VisualState.Setters>
                     </VisualState>
 

@@ -22,7 +22,7 @@
     </Shell.FlyoutContent>
 
     <!-- Páginas iniciais (sem menu lateral) -->
-    <ShellContent
+    <!--<ShellContent
         Title="Página Inicial"
         ContentTemplate="{DataTemplate views:MainPage}"
         Route="MainPage"
@@ -38,7 +38,7 @@
         Title="Cadastrar"
         ContentTemplate="{DataTemplate views:RegisterPage}"
         Route="RegisterPage"
-        Shell.FlyoutBehavior="Disabled" />
+        Shell.FlyoutBehavior="Disabled" />-->
 
     <!-- FlyoutItem: Representa um item no menu -->
 

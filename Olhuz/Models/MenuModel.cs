@@ -44,11 +44,26 @@ namespace Olhuz.Models
             // Inicializa a lista de itens
             Items = new ObservableCollection<MenuItemModel>
             {
-                new MenuItemModel { Title="Menu Principal", Icon="home.png", TargetPage = typeof(HomePage)},
-                new MenuItemModel { Title="Ler Imagens", Icon="read_image.png", TargetPage = typeof(ReadImagePage)},
-                new MenuItemModel { Title="Leituras Recentes", Icon="reading_history.png", TargetPage = typeof(ReadingHistoryPage)},
-                new MenuItemModel { Title="Configurações", Icon="settings.png", TargetPage = typeof(SettingsPage)},
-                new MenuItemModel { Title="Minha Conta", Icon="account.png", TargetPage = typeof(MyAccountPage)},
+                new MenuItemModel { Title="Menu Principal",
+                    Icon="home.png",
+                    TargetPage = typeof(HomePage) },
+
+new MenuItemModel { Title="Ler Imagens",
+                    Icon="read_image.png",
+                    TargetPage = typeof(ReadImagePage) },
+
+new MenuItemModel { Title="Leituras Recentes",
+                    Icon="reading_history.png",
+                    TargetPage = typeof(ReadingHistoryPage) },
+
+new MenuItemModel { Title="Configurações",
+                    Icon="settings.png",
+                    TargetPage = typeof(SettingsPage) },
+
+new MenuItemModel { Title="Minha Conta",
+                    Icon="account.png",
+                    TargetPage = typeof(MyAccountPage) },
+
             };
         }
     }

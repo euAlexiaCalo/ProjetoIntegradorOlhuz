@@ -16,7 +16,7 @@
             <Grid Style="{StaticResource GridCollumnCardRead1}" Margin="100,40">
                 <Grid Grid.Column="0" Style="{StaticResource GridRowCardRead1}">
 
-                    <Border Grid.Row="0" Style="{StaticResource CardRead}">
+                    <Border Grid.Row="0" Style="{StaticResource CardRead1}">
 
                         <Border Style="{StaticResource CardOutlineRead}">
 
@@ -37,7 +37,7 @@
 
                 <Grid Grid.Column="1" Style="{StaticResource GridRowCardRead1}">
 
-                    <Border Grid.Row="0" Style="{StaticResource CardRead}">
+                    <Border Grid.Row="0" Style="{StaticResource CardRead2}">
 
                         <Grid Style="{StaticResource GridRowCardRead1}">
 
